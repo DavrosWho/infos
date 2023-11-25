@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN"
+        "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="com.liferay.docs.infos">
+    <author>Joe Bloggs</author>
+    <namespace>infos</namespace>
+
+    <entity name="District" local-service="true" remote-service="true">
+
+        <!-- PK fields -->
+
+        <column name="districtId" type="long" primary="true" />
+
+        <!-- Audit fields -->
+
+        <column name="companyId" type="long" />
+        <column name="groupId" type="long" />
+        <column name="userId" type="long" />
+        <column name="createDate" type="Date" />
+        <column name="modifiedDate" type="Date" />
+
+        <!-- Other fields -->
+
+        <column name="name" type="String" />
+        <column name="code" type="int" />
+        <column name="isArchived" type="boolean" />
+        <column name="farmers" type="Collection" entity="Farmer" mapping-table="Farmers_Districts" />
+
+        <!-- Order -->
+
+        <order by="asc">
+            <order-column name="name" />
+        </order>
+
+        <!-- Finder methods -->
+
+        <finder name="GroupId" return-type="Collection">
+            <finder-column name="groupId" />
+        </finder>
+        <finder name="G_A" return-type="Collection">
+            <finder-column name="groupId" />
+            <finder-column name="isArchived" />
+        </finder>
+    </entity>
+
+    <entity name="Farmer" local-service="true" remote-service="true">
+
+        <!-- PK fields -->
+
+        <column name="farmerId" type="long" primary="true" />
+
+        <!-- Audit fields -->
+
+        <column name="companyId" type="long" />
+        <column name="groupId" type="long" />
+        <column name="userId" type="long" />
+        <column name="createDate" type="Date" />
+        <column name="modifiedDate" type="Date" />
+
+        <!-- Other fields -->
+
+        <column name="orgName" type="String" />
+        <column name="legalForm" type="String" />
+        <column name="inn" type="String" />
+        <column name="kpp" type="String" />
+        <column name="ogrn" type="String" />
+        <column name="regDate" type="Date" />
+        <column name="isArchived" type="boolean" />
+        <column name="districtId" type="long" />
+        <column name="districts" type="Collection" entity="District" mapping-table="Farmers_Districts" />
+
+        <!-- Order -->
+
+        <order by="asc">
+            <order-column name="orgName" />
+        </order>
+
+        <!-- Finder methods -->
+
+        <finder name="GroupId" return-type="Collection">
+            <finder-column name="groupId" />
+        </finder>
+        <finder name="G_O" return-type="Collection">
+            <finder-column name="groupId" />
+            <finder-column name="orgName" />
+        </finder>
+        <finder name="G_I" return-type="Collection">
+            <finder-column name="groupId" />
+            <finder-column name="inn" />
+        </finder>
+        <finder name="G_D" return-type="Collection">
+            <finder-column name="groupId" />
+            <finder-column name="districtId" />
+        </finder>
+        <finder name="G_R" return-type="Collection">
+            <finder-column name="groupId" />
+            <finder-column name="regDate" />
+        </finder>
+        <finder name="G_A" return-type="Collection">
+            <finder-column name="groupId" />
+            <finder-column name="isArchived" />
+        </finder>
+    </entity>
+</service-builder>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.liferay.docs.infos.model.District">
+		<field name="districtId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="userId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="name" type="String" />
+		<field name="code" type="int" />
+		<field name="isArchived" type="boolean" />
+	</model>
+	<model name="com.liferay.docs.infos.model.Farmer">
+		<field name="farmerId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="userId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="orgName" type="String" />
+		<field name="legalForm" type="String" />
+		<field name="inn" type="String" />
+		<field name="kpp" type="String" />
+		<field name="ogrn" type="String" />
+		<field name="regDate" type="Date" />
+		<field name="isArchived" type="boolean" />
+		<field name="districtId" type="long" />
+	</model>
+</model-hints>

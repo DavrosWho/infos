@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="com.liferay.docs.infos.model.District" />
+	<import class="com.liferay.docs.infos.model.Farmer" />
+	<class name="com.liferay.docs.infos.model.impl.DistrictImpl" table="infos_District">
+		<cache usage="read-write" />
+		<id name="districtId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="code" type="com.liferay.portal.dao.orm.hibernate.IntegerType" column="code_" />
+		<property name="isArchived" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+	<class name="com.liferay.docs.infos.model.impl.FarmerImpl" table="infos_Farmer">
+		<cache usage="read-write" />
+		<id name="farmerId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="orgName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="legalForm" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="inn" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="kpp" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ogrn" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="regDate" type="org.hibernate.type.TimestampType" />
+		<property name="isArchived" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="districtId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+</hibernate-mapping>
